@@ -1,3 +1,4 @@
 心累啊
-status————驗證改動
+git status————驗證改動
 git commit -am ""————合併提交
+git diff 文件名 ————具體改動內容
