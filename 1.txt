@@ -9,3 +9,5 @@ git reset --hard head^ ————切換到上一個版本
 工作區 版本庫——暫存區，分支
 git checkout -- 文件名 ————撤銷，讓工作區文件還原到暫存區時的狀態
 git reset head 文件名 ————撤銷，讓暫存區文件還原到最近一次提交狀態（分支狀態）
+rm 文件名 ————刪除工作區文件
+git rm 文件名 ————刪除暫存區文件，注：并提交（git commit）的話，則刪除分支中的該文件
