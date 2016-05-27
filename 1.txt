@@ -1,13 +1,1 @@
-心累啊
-git status————驗證改動
-git commit -am ""————合併提交
-git diff 文件名 ————具體改動內容
-git log ————提交版本記錄————注：--pretty=oneline 查看簡略的信息
-git reflog————命令記錄（包括提交版本記錄），更為簡略
-git reset --hard 版本號————切換到該版本
-git reset --hard head^ ————切換到上一個版本
-工作區 版本庫——暫存區，分支
-git checkout -- 文件名 ————撤銷，讓工作區文件還原到暫存區時的狀態
-git reset head 文件名 ————撤銷，讓暫存區文件還原到最近一次提交狀態（分支狀態）
-rm 文件名 ————刪除工作區文件
-git rm 文件名 ————刪除暫存區文件，注：并提交（git commit）的話，則刪除分支中的該文件
+213241
