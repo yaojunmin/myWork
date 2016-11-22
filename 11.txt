@@ -1,5 +1,5 @@
 {
-    title: "React 问答"，
+    title: "React 问答",
     list: [
       {
         title: "热爱编程是一种怎样的体验？",
