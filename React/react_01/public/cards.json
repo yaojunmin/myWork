@@ -1,0 +1,30 @@
+[
+  {
+    "id": 1,
+    "title": "gard one title",
+    "description": "card detailed description thie **whole** book.",
+    "color": "#bd8d31",
+    "status": "todo",
+    "tasks": [
+      { "id": 1, "name": "task one", "done": true },
+      { "id": 2, "name": "task two", "done": false },
+      { "id": 3, "name": "task three", "done": false }
+    ]
+  },
+  {
+    "id": 2,
+    "title": "gard two title",
+    "description": "card detailed description. the *whole* book",
+    "color": "#3a7e28",
+    "status": "in-progress",
+    "tasks": []
+  },
+  {
+    "id": 3,
+    "title": "gard three title",
+    "description": "card detailed description.",
+    "color": "#bd3a30",
+    "status": "done",
+    "tasks": []
+  }
+]
