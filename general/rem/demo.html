@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!--<base href="../../../" />-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="format-detection" content="email=no" />
+    <title>养车服务</title>
+    <link rel="stylesheet" href="common.v4.css" />
+	<link rel="stylesheet" href="demo.css" />
+</head>
+<body>
+<script>
+    (function(){
+        var e = null;
+        window.onresize = function(){
+            clearTimeout(e), e = setTimeout(f, 300);
+        }, f();
+        function f(){
+            var cw = document.documentElement.clientWidth > 414 ? 414 : document.documentElement.clientWidth;
+            document.querySelector("html").style.fontSize = cw / 16+"px";
+        }
+    })(window);
+</script>
+<div class="page-full-screen">
+    <div id="page" class="page-container font-family-heiti">
+        <div class="header">
+            <h1>博瑞祥云奥迪4S店</h1>
+            <p>购车时间：2014年10月10日</p>
+        </div>
+        <ul class="content">
+            <li class="my-item">
+                <div class="img">
+                    <span>8</span>
+                </div>
+                <p>保养服务</p>
+            </li>
+            <li class="my-item">
+                <div class="img">
+                    <span>8</span>
+                </div>
+                <p>维修服务</p>
+            </li>
+            <li class="my-item">
+                <div class="img">
+                    <span>8</span>
+                </div>
+                <p>保险服务</p>
+            </li>
+            <li class="my-item">
+                <div class="img">
+                    <span>8</span>
+                </div>
+                <p>爱车课堂</p>
+            </li>
+            <li class="my-item">
+                <div class="img">
+                    <span>8</span>
+                </div>
+                <p>零部件</p>
+            </li>
+            <li class="my-item">
+                <div class="img">
+                    <span>8</span>
+                </div>
+                <p>油耗</p>
+            </li>
+            <li class="my-item disable">
+                <div class="img">
+                    <!--<span>8</span>-->
+                </div>
+                <p>车辆年检</p>
+            </li>
+            <li class="my-item disable">
+                <div class="img">
+                    <!--<span>8</span>-->
+                </div>
+                <p>车辆置换</p>
+            </li>
+        </ul>
+        <div class="btn-group">
+            <a class="btn">您的专属客服</a>
+        </div>
+    </div>
+</div>
+<script src="jquery-1.11.1.min.js"></script>
+<script src="demo.js"></script>
+<script src="demo.js"></script>
+</body>
+</html>

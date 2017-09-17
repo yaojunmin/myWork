@@ -1,0 +1,11 @@
+初始化：
+    1、created实例化完成后
+    发送请求得到commit数组数据
+    2、渲染
+    过滤器
+
+更新（交互）：
+    1、选中其他分支，触发双向绑定，改变currentBranch值
+    2、监听currentBranch的事件被触发
+    3、更新commit数组数据
+    4、重新渲染

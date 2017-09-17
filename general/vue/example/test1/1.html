@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>父页面</title>
+  </head>
+  <body>
+  <input type=button value="调用子页面中的函数childSay函数" onclick="callChild()">
+  <iframe id="myFrame" src="2.html"></iframe>
+  <script type="text/javascript">
+function parentSay() {
+alert("我是父页面中的方法");
+}
+function callChild()
+{
+document.getElementById("myFrame").contentWindow.childSay();
+}
+  </script>
+  </body>
+</html>

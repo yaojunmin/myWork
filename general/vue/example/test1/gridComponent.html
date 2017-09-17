@@ -1,0 +1,42 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="format-detection" content="email=no" />
+    <title>网格组件 Example</title>
+    <link rel="stylesheet" href="css/gridComponent.css" />
+</head>
+<body>
+    <script type="text/x-template" id="grid-template">
+        <table>
+            <thead>
+                <tr>
+                    <th v-for="key in columns" @click="sortBy(key)" :class="{ active: sortKey == key }">
+                        {{ key | capitalize }}  <!-- 这是过滤器：把key的值放到capitalize过滤器中 -->
+                        <span class="arrow" :class="sortOrders[key] > 0 ? 'asc' : 'dsc'"></span>
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr v-for="entry in filteredData"><!-- 计算属性 -->
+                    <td v-for="key in columns">
+                        {{entry[key]}}
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </script>
+
+    <div id="demo">
+        <form id="search">
+            Search <input name="query" v-model="searchQuery">
+        </form>
+        <demo-grid :data="gridData" :columns="gridColumns" :filter-key="searchQuery"></demo-grid>
+    </div>
+
+    <script src="https://unpkg.com/vue/dist/vue.js"></script>
+    <script src="js/gridComponent.js"></script>
+</body>
+</html>

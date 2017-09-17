@@ -1,0 +1,35 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="format-detection" content="email=no" />
+    <title>demo</title>
+    <style>
+        /*过度效果*/
+        .fade-enter-active, .fade-leave-active{/*变化*/
+            transition: opacity .5s;
+        }
+        .fade-enter, .fade-leave-to{/*初始*//*结束*/
+            opacity: 0
+        }
+        /*其实只要'初始'和'变化'两种情况就可以实现过渡效果了*/
+    </style>
+</head>
+<body>
+    <div id="example"><example></example></div>
+
+    <div id="demo">
+        <button v-on:click="show = !show">Toggle</button>
+        <transition name="fade">
+            <p v-if="show">hello</p>
+        </transition>
+    </div>
+
+    <div id="hook-arguments-example" v-demo:foo.a.b="message"></div>
+
+    <script src="https://unpkg.com/vue/dist/vue.js"></script>
+    <script src="js/demo_1.js"></script>
+</body>
+</html>
