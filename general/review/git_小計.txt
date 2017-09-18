@@ -1,0 +1,110 @@
+git config --global user.name "yaojunmin"
+git config --global user.email "562126964@qq.com"
+注意：--global參數，表示本機上所有的git倉庫都會使用這個配置；
+
+mkdir 目錄名 ————創建文件夾；
+pwd 	     ————顯示當前目錄；
+
+備註：Windows系統，請確保目錄名不包含中文；
+
+git init     ————把當前目錄變成git可以管理的倉庫
+
+ls -ah	     ————可以看到隱藏的“.git”目錄  ————知道就好，並沒有軟用
+
+git add      ————把文件添加到倉庫
+
+git commit -m "該提交描述說明"    ————把文件提交到倉庫
+
+git commit -am "該提交描述說明"   ————把文件添加并提交到倉庫（add,commit合併步驟）
+
+備註：add可以反復多次使用，添加多個文件；commit可以一次提交多個文件；
+
+
+git status    ————查看倉庫當前的狀態（是否修改過等等）
+
+git diff 文件名  ————查看該文件具體修改了什麼內容；
+
+git log       ————顯示從最近到最遠的提交日誌信息；（查看提交歷史）
+git log --pretty=online	    ————簡化版的提交日誌信息；
+
+git reset --hard head^ 	    ————回退到上個版本；
+git reset --hard head~100 	    ————回退到往上100個版本；
+git reset --head 版本commitID	    ————回到指定的那個版本；
+
+git reflog  	————用來記錄你的每一次命令；（查看命令歷史）
+
+
+工作區，版本庫：暫存區，分支；
+流程：工作區add到暫存區，暫存區commit到分支；
+
+cat 文件名 	————查看文本內容；
+
+
+git checkout -- 文件名      ————把文件在工作區的修改全部撤銷，回到和暫存區一樣的狀態；即使是工作區的文件被刪除了也能還原回來；（工作區撤銷）
+
+git reset head 文件名 	    ————可以把暫存區的修改撤銷掉，回到和分支一樣的狀態；（暫存區撤銷）
+
+rm 文件名  	————刪除文件（工作區）
+
+git rm 文件名   ————刪除文件（暫存區），然後git commit之後就從分支里刪除掉該文件了；
+
+
+ssh-keygen -t rsa -C "你的郵箱地址"		————創建SSH Key
+
+
+git remote add 遠程庫名（自定義） 遠程庫地址  	————將本地庫關聯到遠程庫（gitHub庫）
+
+git push -u 遠程庫名 本地庫分支名   ————把該本地分支推送到遠程庫（-u,第一次推送分支的所有內容）
+git push 遠程庫名 本地庫分支名      ————上面的執行過之後，就可以直接使用這個方式來推送最新修改
+
+git clone 遠程庫地址  	    ————克隆一個遠程庫到本地
+
+
+小知識：git支持多種協議：
+	HTTPS，速度慢，每次推送要輸入口令；（某些公司只開放http端口）；
+	ssh，配置SSH Key;
+
+
+git branch 分支名	————創建分支
+
+git checkout 分支名	————切換到該分支
+
+git checkout -b 分支名  ————創建并切換到該分支
+
+git branch 		————查看所有分支
+
+git merge 分支名 	————把該分支合併到當前分支（相當於直接把該分支內容覆蓋當前分支，備註：可能有其他什麼情況？需要留意！！！）
+
+git branch -d 分支名	————刪除該分支（很多情況，自己看看git控制台的提示就明白了，不單單指這個）
+git branch -D 分支名	————強行刪除該分支；
+
+
+git log --graph --pretty=oneline --abbrev-commit  	————查看分支合併情況
+git merge 分支名，這裡合併分支產生衝突的話，需要人為的修改衝突文件內容，然後繼續add、commit即可；
+git merge 分支名 --no-ff -m "合併歷史信息" 		————合併分支，--no-ff參數表示用普通模式合併，合併后的歷史有分支，能看出來曾經做過合併（所以才有-m “合併歷史信息”）；fast forward模式（不加參數的）合併就看不出來曾經做過合併；
+
+
+git stash	————把當前工作區，儲藏起來
+git stash list  ————查看儲藏起來的工作區
+git stash pop	————恢復儲藏起來的工作區，并把儲藏的內容刪了
+git stash apply 儲藏工作區編號	    ————恢復指定的儲藏工作區，但不刪除儲藏工作區（git stash drop來刪除）
+
+
+git remote 	————查看遠程庫信息
+git remote -v	————顯示更詳細信息
+
+
+抓取分支（以下步驟）
+1、git clone 遠程庫地址	    ————克隆遠程庫
+2、git checkout -b dev origin/dev	————創建遠程庫分支到本地
+備註：只有“克隆遠程庫”的前提下，才能“創建遠程庫分支到本地”
+
+
+遠程推送衝突
+1、git branch --set-upstream-to=origin/master（遠程） master(本地） 	————建立本地與遠程分支的鏈接
+2、git pull		————把最新的提交從遠程抓下來
+備註：特殊情況，本地分支並不是來自遠程庫複製的（即沒有共同祖先，則會失敗，解決方法：git pull --allow-unrelated-histories）
+3、合併有衝突，手動解決在提交，最後推送到遠程；
+
+
+明天“標籤管理”
