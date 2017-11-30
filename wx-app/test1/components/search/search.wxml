@@ -1,0 +1,11 @@
+<!--components/search.wxml-->
+<view class="search">
+    <view class="search-form">
+        <input type="text" placeholder="请输入关键词进行搜索" class="search-control" bindinput='setValue'></input>
+    </view>
+    <view class="search-icon">
+      <view class="search-img" bindtap='emitSearch'>
+        <image src="http://2.img.dianjiangla.com/assets/app/icon_search.png" />
+      </view>
+    </view>
+  </view>

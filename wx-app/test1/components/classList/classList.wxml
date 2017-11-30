@@ -1,0 +1,7 @@
+<!--components/classList/classList.wxml-->
+<view class="class-list" style="z-index: 2008;">
+  <view style="padding: 0px 0.2rem;">
+    <view bindtap='getName' data-select-obj="" class="class-list-item">全部</view>
+    <view bindtap='getName' wx:for="{{classList}}" wx:key="{{index}}" data-select-obj="{{item}}" class="class-list-item">{{item.name ? item.name : item}}</view>
+  </view>
+</view>

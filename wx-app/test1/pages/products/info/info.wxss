@@ -1,0 +1,13 @@
+/* pages/products/info/info.wxss */
+
+.info {
+  width: 650rpx;
+  height: 100%;
+  overflow: hidden;
+  margin: auto;
+  margin-top: 18rpx;
+}
+
+.info-img {
+  width: 616rpx;
+}

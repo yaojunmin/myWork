@@ -1,0 +1,11 @@
+/* components/nav-category/nav-category.wxss */
+.nav-category {
+  
+}
+
+.icondown {
+  height: 13rpx;
+  width: 24rpx;
+  margin-left: 6rpx;
+  display: inline-block;
+}

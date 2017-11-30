@@ -1,0 +1,5 @@
+{
+  "usingComponents": {
+    "component-class-list": "/components/classList/classList"
+  }
+}

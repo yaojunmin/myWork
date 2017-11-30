@@ -1,0 +1,166 @@
+/**index.wxss**/
+
+/* iPhone6 1rpx = 0.5px	1px = 2rpx */
+
+/* iPhone6 Plus 1rpx = 0.552px	1px = 1.81rpx */
+
+.container {
+  padding: 0;
+  background: #f7f7f7;
+}
+
+/* 轮播 */
+component-roasting{
+  width: 100%;
+}
+
+/* 设计师 */
+
+.designer-list {
+  width: 100%;
+  padding: 0 20rpx;
+  box-sizing: border-box;
+  background: #fff;
+}
+
+.designer-list .title {
+  font-size: 36rpx;
+  color: #f54102;
+  height: 60rpx;
+  line-height: 60rpx;
+}
+
+.designer-list .list {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+/* 按钮 */
+
+.btn-check {
+  height: 84rpx;
+  line-height: 84rpx;
+  margin-top: 20rpx;
+  margin-bottom: 20rpx;
+  font-size: 30rpx;
+  border-radius: 0;
+  background: #f54102;
+  color: #fff;
+}
+
+/** 修改button默认的点击态样式类**/
+
+.button-hover {
+  background-color: red;
+}
+
+/* 平台规则 */
+
+.rules {
+  width: 100%;
+  margin-top: 20rpx;
+  background: #fff;
+}
+
+.rules .title {
+  font-size: 28rpx;
+  color: #f54102;
+  height: 63rpx;
+  line-height: 63rpx;
+  border-bottom: 1px solid #eee;
+  text-align: center;
+}
+
+.rules .list {
+  display: flex;
+  /* justify-content: space-around; */
+}
+
+.rules .list .link {
+  padding: 32rpx 0 14rpx;
+  flex: 1;
+  text-align: center;
+}
+
+.rules .list .img {
+  width: 95.93rpx;
+  height: 95.93rpx;
+  overflow: hidden;
+  margin: auto;
+}
+
+.rules .list .img image {
+  width: 100%;
+  height: 100%;
+}
+
+.rules .list .txt {
+  font-size: 26rpx;
+  color: #5a5a5a;
+}
+
+/* 注册/登录 */
+
+.user {
+  background: #fff;
+  padding: 25rpx 0 0;
+}
+
+.user .title {
+  height: 78rpx;
+  line-height: 78rpx;
+  color: #5a5a5a;
+  font-size: 26rpx;
+  padding: 0 20rpx;
+  display: flex;
+}
+
+.user .title .layout-left {
+  flex: 1;
+}
+
+.user .title .layout-right {
+  font-size: 20rpx;
+}
+
+.user .title .layout-right text {
+  color: #f54210;
+}
+
+.user .weui-cell_input {
+  padding: 0 20rpx;
+}
+
+.user .btn-group {
+  margin-top: 25rpx;
+  padding: 0 20rpx;
+}
+
+.user .btn-group .weui-btn {
+  height: 73rpx;
+  line-height: 73rpx;
+  font-size: 30rpx;
+  border-radius: 0;
+}
+
+.user .btn-group .fabu {
+  background: #f54102;
+}
+
+.user .btn-group .denglu {
+  background: #5a5a5a;
+  margin-top:25rpx;
+}
+
+.user .img {
+  height: 55rpx;
+  overflow: hidden;
+  padding: 10rpx 0;
+}
+
+.user .img image {
+  width: 100%;
+  height: 100%;
+}

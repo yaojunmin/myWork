@@ -1,0 +1,28 @@
+<!--pages/products/products.wxml-->
+<view class="products main">
+  <!-- 搜索 -->
+  <component-search bindsearch="search"></component-search>
+  <!-- 导航 -->
+  <view class="nav">
+    <picker wx:for="{{category}}" wx:key="{{index}}" data-index="{{index}}" bindchange="bindPickerChange" range-key="name" range="{{item.array}}">
+      <component-nav-category name="{{item.array[item.number].name || item.name}}" data-type="{{item.type}}"></component-nav-category>
+      <!-- bindtap="openCategory"  -->
+    </picker>
+  </view>
+  <!-- 列表 -->
+   <scroll-view upper-threshold="10" scroll-top="{{scrollTop}}" lower-threshold="35" scroll-with-animation scroll-y bindscrolltoupper="upper" bindscrolltolower="lower" bindscroll="scroll" bindtouchend="press"> 
+    <!--刷新  -->
+    <view class="weui-loadmore">
+      <view class="weui-loading"></view>
+      <view class="weui-loadmore__tips">正在加载</view>
+    </view>
+    <view class="list">
+      <component-product wx:for="{{productList}}" wx:key="{{index}}" product="{{item}}" data-id="{{item.id}}" bindtap="productInfo"></component-product>
+    </view>
+    <!--加载更多  -->
+    <view style="margin-top: 0;padding: 0.8em 0 1.5em;" class="weui-loadmore" hidden="{{isHideLoadMore}}">
+      <view class="weui-loading"></view>
+      <view class="weui-loadmore__tips">正在加载</view>
+    </view>
+  </scroll-view>
+</view>
