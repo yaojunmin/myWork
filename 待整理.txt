@@ -1,0 +1,125 @@
+记下：
+1、oa系统ie登陆
+2、nrm 切换源；nvm 切换node版本 
+3、更改系统 host 访问域名/后台接口，原因：cookie绑在域名下面了（登陆)。备注：也可以Nginx代理访问
+4、vue添加实例属性/方法：
+①prototype
+②use => install(vue) => prototype;
+5、全局事件监听$on，需要注意：当前页面自定义事件不可重名；不同页面之间没关系；组件化比较细的情况下需要注意；
+6、vue的sync修饰符，虚拟双向绑定，同步更新数据；
+7、滚动条样式：::-webkit-scrollbar width: 8px;height: 8px;::-webkit-scrollbar-thumb background-color: #62a0f8;
+8、混入 (mixins) 是复用vue组件功能的一种方式。组件优先级高于混入；
+9、this.$el 当前组件的根节点/Vue 实例使用的根 DOM 元素
+10、以后开发采用严格模式；
+11、git
+①rm -rf ~/.ssh		==删除目录
+②ssh-keygen -t rsa -C "yaojm@guahao.com"	==删除ssh
+③git config user.email
+④git config user.name
+⑤git push origin HEAD:refs/for/20180914_feature_init%r=ruanzk,r=jiangjw
+git push origin HEAD:refs/for/20181029_feature_report%r=gaop,r=jiangjw
+原因：全局git账号不对造成的。
+⑥q:退出；wq:保存并退出；
+⑦链接超时，没连上review，ping地址试试就知道了。
+⑧更新指定分支代码：git pull 远程库名 分支名:分支名
+12、代理 解决 跨域
+proxyTable: {
+      '/api': {
+        target: 'http://192.168.16.95:8080', // 接口的域名
+        // secure: false,  // 如果是https接口，需要配置这个参数
+        changeOrigin: true, // 如果接口跨域，需要进行这个参数配置
+        pathRewrite: {
+          '^/api': ''
+        }
+      }
+    },
+13、iOS的cookie后台接收不到，可能是他配置的路径不对。
+备注：安全性 httponly 前端无法通过js取cookie值。
+14、ie不支持 es6 垫片babel-polyfill 顶部引用；入口配置app: ['babel-polyfill', './src/main.js'],；
+15、移动端适配记得①低版本确认4.3；②iOS x 打底会有问题（app解决：增加一定像素安全区域）要不就自行处理；
+16、改host地址：C:\Windows\System32\drivers\etc 就是域名访问对应IP地址
+①VPN有访问host配置的IP地址的权限；
+②host配置，域名访问正确的IP地址；
+17、加密显示（脱敏）
+getEncryp(v) {
+        if (!v) {
+          return '';
+        }
+        const arr = v.split('');
+        let str = '';
+        arr.forEach((item, index) => {
+          if (index > 2 && index < 14) {
+            str += '*';
+            return false;
+          }
+          str += item;
+        });
+        return v;
+      },
+18、上线package.json固定版本号。
+19、position定位，需要设置z-index才会生效；
+20、vue 导入图片 icon: require('../../../images/common/icon_radio.png'),
+21、vue 组件 props object类型的默认值设置；
+info: {
+      type: Object,
+      default() {
+        return {
+          doctorAdvice: '',
+        };
+      },
+    },
+22、vue 设置title
+router.beforeEach((to, from, next) => {
+  const title = to.meta.title || '处方';
+  document.title = title;
+  next();
+});
+23、保证每次进入页面都是从头部开始
+router.afterEach((to) => {
+  window.scrollTo(0, 0);
+  console.log(to);
+});
+24、iOSAndroid设备判断
+if (/Android (\d+\.\d+)/.test(navigator.userAgent)) {
+        window.mobile.isBackRecipe();
+      } else {
+        window.webkit.messageHandlers.isBackRecipe.postMessage('didload');
+      }
+25、全等判断===
+路由传参过来都是字符串类型；
+路由获取参数以及其他情况，都需要加默认值；
+26、vue 缓存（方案针对性比较明显）
+①配置缓存页面
+activated() {
+      if (!this.$route.meta.isKeepAlive) {
+        this.init();
+      }
+    },
+②处理不缓存的情况
+beforeRouteLeave(to, from, next) {
+      from.meta.isKeepAlive = true;
+      next();
+    },
+27、项目开发完毕，花时间精简代码，这次手机开方项目乱七八糟的！！！
+28、组件化不好。样式不好。目标应该是简单复用！！！
+29、表单 虚拟键盘 遮挡 处理方案（Android配合，页面要推上去）
+mounted() {
+      this.id = this.$route.query.recipeId || '';
+      this.getCode(this.qrcode);
+      window.onresize = () => {
+        this.screenHeight = document.documentElement.clientHeight;
+      };
+    },
+
+watch: {
+      screenHeight(val) {
+        if (this.originHeight > val) {
+          this.isOriginHei = false;
+        } else {
+          this.isOriginHei = true;
+        }
+      },
+    },
+30、下载PDF
+①html2canvas：滚动形式渲染补全，应该设置height为实际渲染dom节点的大小。（HTML转canvas）
+②jsPDF：a4大小以及分页操作（img转PDF）

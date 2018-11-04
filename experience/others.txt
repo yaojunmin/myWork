@@ -1,0 +1,2 @@
+nvm install stable
+nvm install latest

@@ -1,0 +1,12 @@
+账号切换：密码 账号 等同
+su - anhao-recipe-h5-static
+1、进入static的目录下
+cd src
+cd static
+2、删除dist文件
+rm -rf dist
+3、上传dist的zip压缩包/解压
+rz
+unzip dist.zip
+4、删除dist的压缩包
+rm -rf dist.zip
