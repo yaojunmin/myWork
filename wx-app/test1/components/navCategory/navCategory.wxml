@@ -1,5 +1,0 @@
-<!--components/nav-category/nav-category.wxml-->
-<view class="nav-category">
-  {{name}}
-  <image src="{{iconUrl}}" class="icondown" />
-</view>

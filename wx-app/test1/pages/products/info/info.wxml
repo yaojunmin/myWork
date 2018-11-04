@@ -1,4 +1,0 @@
-<!--pages/products/info/info.wxml-->
-<view class="info">{{aa}}
-  <image hidden="{{show}}" mode="widthFix" class='info-img' src="{{info.details}}" bindload="imgLoadComplete"/>
-</view>

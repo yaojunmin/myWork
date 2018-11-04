@@ -1,4 +1,0 @@
-<!--pages/category/category.wxml-->
-<view class="category">
-  <component-class-list classList="{{classList}}" bindselected="getElect"></component-class-list>
-</view>

@@ -1,7 +1,0 @@
-<!--components/product/product.wxml-->
-<view class="product">
-  <view class="product-img">
-    <image src="{{product.image_url}}"></image>
-  </view>
-  <view class="product-text">{{product.name}}</view>
-</view>

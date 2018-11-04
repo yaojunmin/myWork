@@ -1,6 +1,0 @@
-{
-  "usingComponents": {
-    "component-designer-list": "/components/designerList/designerList",
-    "component-roasting": "/components/roasting/roasting/roasting"
-  }
-}

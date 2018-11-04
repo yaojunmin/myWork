@@ -1,7 +1,0 @@
-{
-  "usingComponents": {
-    "component-product": "/components/product/product",
-    "component-search": "/components/search/search",
-    "component-nav-category": "/components/navCategory/navCategory"
-  }
-}
