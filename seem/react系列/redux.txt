@@ -1,0 +1,55 @@
+========基础篇========
+1、原则性
+①单一数据源
+只有一个store，其中含有全部的state；
+②state只读
+仅通过action更新state的值；
+③纯函数
+reducer接受state/action，返回新的state的值；
+
+
+2、action
+①text
+②index：唯一标识，识别action事件类型
+③filter
+④type：action事件类型
+备注：以上都只是参数而已，所谓的意义只能约定俗称。
+
+
+3、reducer
+纯函数，返回state的值。
+
+
+4、Store
+维持应?的 state；
+提供 getState() ?法获取 state；
+提供 dispatch(action) ?法更新 state；
+通过 subscribe(listener) 注册监听器（监听state更新）;			listener执行监听事件
+通过 subscribe(listener) 返回的函数注销监听器。		subscribe()函数执行完毕的结果再次执行则关闭监听器
+例子：
+let unsubscribe = store.subscribe(() =>
+    console.log(store.getState())
+)
+unsubscribe();
+
+
+========问题篇========
+1、每次返回的是新的state 树，react需要如何更新，直接更新整个对象？react的底层会默认更新整个对象，还是只更新更改过的部分
+
+
+========react+redux篇========
+1、容器组件/展示组件
+2、react 关联 redux：
+①容器组件将展示组件和redux关联起来
+技术上讲，容器组件就是使? store.subscribe()从 Redux state 树中读取部分数据，并通过 props 来把这些数据提供给要渲染的组件。
+②思路
+1）定义state同时也是需要使用的state；
+2）绑定的事件通过 dispatch 分发action 事件；
+3）事件触发，通过action指向对应的reducer，从而更新相应的state；
+流程：1）=》2）=》3）=》1）形成闭环。
+③说明：
+1）<Provider>保证容器组件可以访问store；
+2）connect（）创建容器组件；
+
+
+备注：两个案例一回事。<Provider>形式针对 手动store.subscribe()来说的（即不需要手动写store.subscribe()了）。

@@ -1,0 +1,64 @@
+git操作
+1、rm -rf ~/.ssh				==删除目录
+
+2、ssh-keygen -t rsa -C "yaojm@guahao.com"	==删除ssh
+
+3、git config user.email
+
+4、git config user.name
+
+5、q:退出；wq:保存并退出；
+
+6、更新指定分支代码：git pull 远程库名 分支名:分支名
+
+7、git branch -d 分支名			==删除分支
+
+8、git merge 分支名				==合并该分支
+
+9、git checkout 分支名			==切换到该分支
+
+10、git remote set-url origin git@git.guahao-inc.com:business-front/union-platform-static.git
+
+11、切版本
+git reset --hard 0034bf30b21792b2884840b75e2b9d082469ddcc
+
+12、强制覆盖本地
+git fetch --all
+git reset --hard origin/20181115_feature_restruct
+git pull
+说明：
+    git fetch 指令是下载远程仓库最新内容，不做合并 
+    git reset 指令把HEAD指向master最新版本
+
+13、清除缓存
+npm cache clean -f
+
+14、安装指定版本
+yarn add medical-image-viewer@git+ssh://git@git.guahao-inc.com:business-front/medical-image-viewer.git
+
+15、npm修改源
+设置源：npm config set registry https://registry.npm.taobao.org
+获取源：npm config get registry
+
+
+
+
+
+公司review：
+	git push origin HEAD:refs/for/20180914_feature_init%r=ruanzk,r=jiangjw
+	git push origin HEAD:refs/for/20181029_feature_report%r=gaop,r=jiangjw
+公司down项目不成功：
+	链接超时，没连上review，ping地址试试就知道了。
+	全局git账号不对造成的。
+
+
+
+===================gitlab
+一、gitlab拉取代码显示账号被锁定，解决：重新生成ssh key,添加到相应没有被锁定的人员即可；
+1、删除ssh
+rm -rf ~/.ssh
+2、生成某人的ssh
+ssh-keygen -t rsa -C "shenfen@guahao.com"
+3、查看ssh
+cat ~/.ssh/id_rsa.pub
+4、将ssh生成的key，添加到gitLab

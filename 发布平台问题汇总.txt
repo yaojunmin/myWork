@@ -1,0 +1,7 @@
+1、下载依赖失败 404
+确认是否是发布平台npm源的问题。
+
+2、node环境版本不对
+node环境版本更改方法：
+http://wcp.gops.guahao.cn/application/query.json?teamName=&applyStatus=1&applicationName=union-platform-admin-static
+补充说明：http://npm.guahao-inc.com/ (公司内部npm库，需要VPN下载；发布平台正确源地址)

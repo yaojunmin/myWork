@@ -11,17 +11,7 @@
 8、混入 (mixins) 是复用vue组件功能的一种方式。组件优先级高于混入；
 9、this.$el 当前组件的根节点/Vue 实例使用的根 DOM 元素
 10、以后开发采用严格模式；
-11、git
-①rm -rf ~/.ssh		==删除目录
-②ssh-keygen -t rsa -C "yaojm@guahao.com"	==删除ssh
-③git config user.email
-④git config user.name
-⑤git push origin HEAD:refs/for/20180914_feature_init%r=ruanzk,r=jiangjw
-git push origin HEAD:refs/for/20181029_feature_report%r=gaop,r=jiangjw
-原因：全局git账号不对造成的。
-⑥q:退出；wq:保存并退出；
-⑦链接超时，没连上review，ping地址试试就知道了。
-⑧更新指定分支代码：git pull 远程库名 分支名:分支名
+
 12、代理 解决 跨域
 proxyTable: {
       '/api': {
@@ -123,3 +113,44 @@ watch: {
 30、下载PDF
 ①html2canvas：滚动形式渲染补全，应该设置height为实际渲染dom节点的大小。（HTML转canvas）
 ②jsPDF：a4大小以及分页操作（img转PDF）
+
+1、返回promise对象（reject），然后同步 await 接收不到的。
+原因：在await的时候没有接收错误信息
+解决：try catch
+
+2、打印分页：弹窗 position absolute 解决不分页问题
+
+3、更新对象：this.$set(this.imgStatus, index, !this.imgStatus[index]);
+
+4、差一点需要搞清楚！
+watch：深度监听和普通的区别
+
+5、清除files文件内容：this.refs.aceticAcid.value = '';以保证每次可以上传
+computed：监听不到深层的数据变化；
+
+6、vue绑监听事件，当组件销毁的时候，同样需要移除该事件。
+destroyed() { this.$bus.$off('patientInfoChange'); },
+
+5、import和require的区别；一个是引用提前/一个是执行到该句引用；具体详细看看；
+
+3、vuex数据不同步，原因：新开页面和当前页面分属不同的线程；解决：localStorage同步数据；
+
+elint:hasOwnProperty属性使用公共的对象，不要使用单一对象，存在重写的情况；
+
+深度监听：组件之间传递对象；
+
+vue引用图片：标签层，通过require；样式层，相对路径即可；
+import 图片，处理图片缓存的问题。但是不是合理的解决方式。
+说明：vue引用图片方式即可，若不行则采用下面的方式；
+
+nw设置内核：移动端伪装；
+
+缓存：如果数据会变动，则不需要缓存；省市区才适合；
+
+flex:单个对象margin-left: auto;方可设置靠左靠右；
+
+css属性：-webkit-app-region: no-drag; 插件el-dropdown加这个才生效nw开发；
+
+知识点：https://www.youtube.com/watch?v=e-5obm1G_FY
+
+7、vue，refs获取对象在mounted周期拿不到；

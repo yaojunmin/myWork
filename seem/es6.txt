@@ -1,0 +1,26 @@
+1、Obeject.is() 
+等价于 全等‘===’；
+特殊情况除外，例如：-0和+0，NaN的比较和全等不一致；
+
+2、Object.assign()
+浅复制；
+返回复制后的值；
+第一项参数会被更改；
+
+3、Object.getOwnPropertyNames()
+自有属性枚举，规则：
+数字升序排序；
+字符按照加入对象顺序排序；
+symbol按照加入对象顺序排序；
+
+4、promise 实现全部函数执行完毕后，执行下一个函数操作；
+return new Promise((resolve, reject) => {
+    if (error) reject(error);
+    resolve(`保存成功${count}`);
+});
+Promise.all(arr).then(() => {//数组arr保存每一项promise对象；
+    this.$message.success('下载完成');
+}).catch(error => {
+    this.$message.error(`下载失败,${error}`);
+});
+补充说明：promise 深入了解；

@@ -1,0 +1,6 @@
+nvm install stable
+nvm install latest
+
+
+=====================插件
+1、mime模块 查看文件类型

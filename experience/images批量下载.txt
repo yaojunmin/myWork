@@ -1,0 +1,53 @@
+6、批量下载图像 FileSaver JSZip
+1）web端：数据 创建压缩实例 添加下载文件 下载压缩包
+const zip = new JSZip();
+const img = zip.folder(`${patientName}_${outSno}`);
+canvasToBlob(url, cb) {//通过canvas将图片url转blob数据格式
+      const canvas = this.$refs.canvas;
+      const ctx = canvas.getContext('2d');
+      const img = new Image();
+      img.crossOrigin = '';
+      img.src = url;
+      img.onload = () => {
+        canvas.width = img.width;
+        canvas.height = img.height;
+        ctx.drawImage(img, 0, 0);
+        canvas.toBlob((blob) => {
+          if (cb) cb(blob);
+        });
+      };
+    },
+this.canvasToBlob(url, (blob) => {
+          img.file(`${count}.png`, blob, { base64: true });
+          resolve(`${count}.png`);
+        });
+zip.generateAsync({ type: 'blob' }).then((content) => {
+              this.$message.success('下载完成');
+              this.loading.close();
+              FileSaver.saveAs(content, `${dayjs().format('YYYY-MM-DD')}_患者影像.zip`);
+            });
+
+2）客户端(node)：数据 创建文件夹 下载图片
+const isExists = fs.existsSync(path);判断是否存在文件夹
+        if (isExists) {
+          return resolve(this.forEachImg(series, http, fs, path, input, patientName));
+        }
+        fs.mkdir(path, { recursive: true }, err => {创建文件夹
+          if (err) reject(err);
+          return resolve(this.forEachImg(series, http, fs, path, input, patientName));
+        });
+http.get(url, (req) => {图片url转二进制数据blob      binary数据类型
+          let imgData = '';
+          req.setEncoding('binary');
+          req.on('data', (chunk) => {
+            imgData += chunk;
+          });
+          req.on('end', () => {
+            fs.writeFile(`${path}/${count}.png`, imgData, 'binary', (error) => {下载图片
+              if (error) reject(error);
+              resolve(`保存成功${count}`);
+            });
+          });
+        });
+
+补充说明：canvas转blob的形式，测试node是否可行；

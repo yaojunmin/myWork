@@ -1,0 +1,18 @@
+详细请见官方文档
+
+1、input file 下载 类似web端open功能
+文件夹
+<input ref="download" type="file" style="display: none;" nwdirectory />
+文件另存为默认地址
+<input ref="export" type="file" style="display: none;" :nwsaveas="filename" />
+补充说明：input.value = ‘’；保证重复操作可以正常执行；
+
+2、处理window直接关闭菜单栏的情况；
+this.$nwWin.on('close', function a() {
+    localStorage.setItem('contentMenuEvent', 'weiyiFloatDelt');
+    this.close(true);继续执行关闭客户端界面关闭操作
+});
+
+3、全局nw对象
+Vue.prototype.$nw = window.nw; //
+Vue.prototype.$nwWin = Vue.prototype.$nw.Window.get(); // 对当前窗口的获取

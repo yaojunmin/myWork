@@ -1,0 +1,71 @@
+1、excel下载 xlsx插件 
+三阶段：数据、配置、导出
+数据格式如下：
+<table ref="export_data" style="display: none;">
+      <thead>
+        <tr>
+          <th v-for="c in colsExport" :key="c.key" style="font-size:14px;height: 48px;">{{c.name}}</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr v-for="(r, key) in dataExport" :key="key">
+          <td v-for="c in colsExport" :key="c.key" style="font-size:12px;height: 48px;"> {{ r[c.key] }}</td>
+        </tr>
+      </tbody>
+    </table>
+// export data
+      dataExport: [],
+      colsExport: [
+        { name: '就诊号', key: 'mzNo' },
+        { name: '患者姓名', key: 'patientName' },
+        { name: '关注状态', key: 'concernsState' },
+        { name: '性别', key: 'sex' },
+        { name: '年龄', key: 'age' },
+        { name: '电话号码', key: 'phone' },
+        { name: '身份证', key: 'cardId' },
+        { name: '就诊类型', key: 'patientType' },
+        { name: '检查日期', key: 'examDate' },
+        { name: '检查号', key: 'outSno' },
+        { name: '检查项目', key: 'itemChName' },
+        { name: '审核状态', key: 'examineState' },
+        { name: '左右眼', key: 'eyes' },
+        { name: 'ai诊断结果', key: 'aiResults' },
+        { name: '医生诊断结果', key: 'doctorResults' },
+        { name: '检查所见', key: 'checkResult' },
+        { name: '检查意见', key: 'checkOpinion' },
+      ],
+
+1）web端：
+const wb = XLSX.utils.table_to_book(this.$refs.export_data);
+// 表格配置
+    getExcelConf(wb) {
+      wb.Sheets.Sheet1['!rows'] = [];
+      wb.Sheets.Sheet1['!cols'] = [];
+      Object.keys(wb.Sheets.Sheet1).forEach(item => {
+        if (item.indexOf('A') !== -1 || item.indexOf('J') !== -1) {
+          wb.Sheets.Sheet1[item].t = 's';设置显示类型
+        }
+        if (item.indexOf('I') !== -1) {
+          wb.Sheets.Sheet1[item].z = 'YYYY-MM-DD HH:mm:ss';设置显示格式
+        }
+        wb.Sheets.Sheet1['!rows'].push({
+          hpx: 30,设置高度
+        });
+        wb.Sheets.Sheet1['!cols'].push({
+          width: 20,设置宽度
+        });
+      });
+      return wb;
+    },
+XLSX.writeFile(this.getExcelConf(wb), this.filename);
+
+2）客户端(node)：
+略有不同：换取buffer的二进制数据，fs创建文件；
+const wbout = XLSX.write(this.getExcelConf(wb), { type: 'buffer', bookType: bookType });
+      fs.writeFile(filename, wbout, (err) => {
+        this.loading.close();
+        if (!err) return this.$message.success('下载成功');
+        this.$message.error(`Error: ${err.message || err}`);
+      });
+
+补充说明：直接通过数据生成，而不是table的形式，抽时间写一下；

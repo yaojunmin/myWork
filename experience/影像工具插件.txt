@@ -1,0 +1,8 @@
+cornerstoneTools
+
+1、判断点击是否在目标标注上
+cornerstoneTools.rectangleRoi.pointNearTool(this.element, item[shape].data[i], e.detail.currentPoints.canvas)
+参数一：canvas对象
+参数二：标注数据
+参数三：点击的位置
+补充说明：e对象来自插件提供事件；

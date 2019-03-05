@@ -1,0 +1,35 @@
+1、<Router> 
+①不渲染元素
+②包裹最大层
+③要有一个子元素包裹着全部元素
+
+2、<Route exact path="/react/base" component={ReactBase} />
+①作为视口的存在，渲染出router的页面
+②exact什么意思？
+③<Route component={NoMatch}/>。被switch包裹，则路由匹配不到渲染。反之，则一直渲染；位置需要写在最后。
+④参数component，渲染组件。例如：component={Home}
+参数render，渲染组件。例如：render={(props) => <About {...props} extra={someVariable}
+⑤children，渲染组件(总是渲染)，匹配参数match;
+children={({match}) => (<div>match ? '匹配中' : '没匹配'}<Link to="/router/customLink/2">匹配2</Link></div>)} />
+
+3、Link
+①导航
+②<NavLink to='/react' activeClassName='hurray'>React</NavLink> 匹配到当前路由的话，应用active样式。
+③<Redirect to='/login'/> 强制导航到该路由。to 参数亦可是对象pathname:'\login'
+
+4、Server Rendering 服务端渲染这节看不太明白！！！
+
+5、withRouter可以包装任何自定义组件，将react-router 的 history,location,match 三个对象传入。 
+①类组件 props取值
+②函数组件 解构赋值传参
+1）history.push() 实现路由跳转
+
+6、路由传参
+①定义：path="/:id"；接受：match.params.id
+②定义：path="/router/:name(yjm|wy)"；接受：match.params.name；
+备注：只配置name为yjm或wy的两项；
+
+
+问题：
+1、路由相对路径写法；
+2、路由跳转通过name的形式；

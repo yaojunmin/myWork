@@ -10,3 +10,8 @@ rz
 unzip dist.zip
 4、删除dist的压缩包
 rm -rf dist.zip
+
+5、开启npm目录操作权限
+sudo chown -R $(whoami) /home/wedata-static/htdocs/business-front/union-platform-static
+备注：后面是需要开启的目录，从根节点开始；
+临时权限的话，可以在命令行前加sudo;例如：sudo npm run build
